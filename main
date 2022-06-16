@@ -32,6 +32,10 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 	wait(1)
 	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
+if nolegs == "On" then
+	game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+	game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
+end
 if noface == "On" then
 	if game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
 		game.Players.LocalPlayer.Character.Head.face:Destroy()
@@ -118,13 +122,6 @@ if lowgraphics == "On" then
 	end
 	print("Low Graphics Enabled!")
 end
-
-if nolegs == "On" then
-	game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
-	game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
-	end
-end
-
 --locals for Attack!
 local StandUser = game.Players[StandOwner]
 local Player = game.Players.LocalPlayer
@@ -2114,10 +2111,9 @@ game.Players.LocalPlayer.CharacterAdded:connect(function()
 			print("Already has no face!")
 			
 	if nolegs =="On" then
-game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
-game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
-		end
-	end
+	game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+	game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
+end
 end)
 
 game.Players.PlayerRemoving:Connect(function(plr)
