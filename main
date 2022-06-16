@@ -26,25 +26,6 @@ local SynapseMode = getgenv().Settings.SynapseMode
 local CustomSong = getgenv().Settings.CustomSong
 local StandMode = getgenv().Settings.StandMode
 
-	assert(getrawmetatable)
-	gmt = getrawmetatable(game)
-	setreadonly(gmt, false)
-	old = gmt.__namecall
-	gmt.__namecall = newcclosure(function(self, ...)
-		local args = {
-			...
-		}
-		if tostring(args[1]) == "TeleportDetect" then
-			return
-		elseif tostring(args[1]) == "CHECKER_1" then
-			return
-		elseif tostring(args[1]) == "CHECKER" then
-			return
-		end
-		return old(self, ...)
-	end)
-end)
-
 local vu = game:GetService("VirtualUser") -- AntiAfk
 game:GetService("Players").LocalPlayer.Idled:connect(function()
 	vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
