@@ -45,9 +45,9 @@ if noface == "On" then
 end
 
 if nolegs == "On" then
-while wait() do
 game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
 game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
+	end
 end
 
 if bypass == "On" then
