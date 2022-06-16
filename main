@@ -17,6 +17,7 @@ local CrewID = getgenv().Settings.CrewID
 local Sounds = getgenv().Settings.Sounds
 local Fpscap = getgenv().Settings.FPSCAP
 local Msg = getgenv().Settings.Msg
+local no legs = getgenv().Settings.NoLegs
 local lowgraphics = getgenv().Settings.LowGraphics
 local bypass = getgenv().Settings.Bypass
 local SummonMusicID = getgenv().Settings.SummonMusicID
@@ -42,6 +43,10 @@ if noface == "On" then
 	end
 end
 
+if nolegs == "On" then
+game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
+end
 _G.FPS = Fpscap
 local clock = tick()
 
@@ -2109,6 +2114,7 @@ game.Players.LocalPlayer.CharacterAdded:connect(function()
 		elseif not game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
 			print("Already has no face!")
 			
+	if nolegs =="On" then
 game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
 game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
 		end
