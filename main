@@ -19,6 +19,7 @@ local Fpscap = getgenv().Settings.FPSCAP
 local Msg = getgenv().Settings.Msg
 local lowgraphics = getgenv().Settings.LowGraphics
 local noface = getgenv().Settings.NoFace
+local bypass = getgenv().Settings.Bypass
 local SummonMusicID = getgenv().Settings.SummonMusicID
 local SummonMusic = getgenv().Settings.SummonMusic
 local VanishAppear = getgenv().Settings.VanishAppearSound
@@ -42,7 +43,7 @@ if noface == "On" then
 	end
 end
 
-if Bypass == "On" then
+if bypass == "On" then
 	assert(getrawmetatable)
 	gmt = getrawmetatable(game)
 	setreadonly(gmt, false)
