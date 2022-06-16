@@ -2107,6 +2107,8 @@ game.Players.LocalPlayer.CharacterAdded:connect(function()
 
 	wait()
 
+game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
 
 	game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):UnequipTools()
 
@@ -2143,10 +2145,6 @@ game.Players.LocalPlayer.CharacterAdded:connect(function()
 			game.Players.LocalPlayer.Character.Head.face:Destroy()
 		elseif not game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
 			print("Already has no face!")
-			
-game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
-game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
-			
 		end
 	end
 end)
