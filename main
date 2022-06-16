@@ -67,8 +67,8 @@ if bypass == "On" then
 			return
 		end
 		return old(self, ...)
-	end)
-end)
+	end
+end
 
 _G.FPS = Fpscap
 local clock = tick()
