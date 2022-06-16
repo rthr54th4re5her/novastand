@@ -32,11 +32,6 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 	wait(1)
 	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
-if nolegs == "On" then
-	game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
-	game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
-	end
-end
 if noface == "On" then
 	if game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
 		game.Players.LocalPlayer.Character.Head.face:Destroy()
@@ -122,6 +117,12 @@ if lowgraphics == "On" then
 		end
 	end
 	print("Low Graphics Enabled!")
+end
+
+if nolegs == "On" then
+	game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+	game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
+	end
 end
 
 --locals for Attack!
