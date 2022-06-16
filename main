@@ -17,9 +17,7 @@ local CrewID = getgenv().Settings.CrewID
 local Sounds = getgenv().Settings.Sounds
 local Fpscap = getgenv().Settings.FPSCAP
 local Msg = getgenv().Settings.Msg
-local nolegs = getgenv().Settings.NoLegs
 local lowgraphics = getgenv().Settings.LowGraphics
-local noface = getgenv().Settings.NoFace
 local bypass = getgenv().Settings.Bypass
 local SummonMusicID = getgenv().Settings.SummonMusicID
 local SummonMusic = getgenv().Settings.SummonMusic
@@ -28,28 +26,6 @@ local SynapseMode = getgenv().Settings.SynapseMode
 local CustomSong = getgenv().Settings.CustomSong
 local StandMode = getgenv().Settings.StandMode
 
-local vu = game:GetService("VirtualUser") -- AntiAfk
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-	vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-	wait(1)
-	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-end)
-
-
-if noface == "On" then
-	if game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
-		game.Players.LocalPlayer.Character.Head.face:Destroy()
-	elseif not game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
-		print("Already has no face!")
-	end
-end
-
-if nolegs == "On" then
-game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
-game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
-end
-
-if bypass == "On" then
 	assert(getrawmetatable)
 	gmt = getrawmetatable(game)
 	setreadonly(gmt, false)
@@ -68,6 +44,22 @@ if bypass == "On" then
 		return old(self, ...)
 	end)
 end)
+
+local vu = game:GetService("VirtualUser") -- AntiAfk
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+	vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	wait(1)
+	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+
+
+if noface == "On" then
+	if game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
+		game.Players.LocalPlayer.Character.Head.face:Destroy()
+	elseif not game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
+		print("Already has no face!")
+	end
+end
 
 _G.FPS = Fpscap
 local clock = tick()
@@ -2136,9 +2128,8 @@ game.Players.LocalPlayer.CharacterAdded:connect(function()
 		elseif not game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
 			print("Already has no face!")
 			
-	if nolegs == "On" then
-	game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
-	game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
+game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
 		end
 	end
 end)
