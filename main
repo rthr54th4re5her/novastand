@@ -47,7 +47,6 @@ end
 if nolegs == "On" then
 game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
 game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
-	end
 end
 
 if bypass == "On" then
@@ -67,8 +66,8 @@ if bypass == "On" then
 			return
 		end
 		return old(self, ...)
-	end
-end
+	end)
+end)
 
 _G.FPS = Fpscap
 local clock = tick()
