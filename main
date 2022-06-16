@@ -17,6 +17,7 @@ local CrewID = getgenv().Settings.CrewID
 local Sounds = getgenv().Settings.Sounds
 local Fpscap = getgenv().Settings.FPSCAP
 local Msg = getgenv().Settings.Msg
+local nolegs = getgenv().Settings.NoLegs
 local lowgraphics = getgenv().Settings.LowGraphics
 local noface = getgenv().Settings.NoFace
 local bypass = getgenv().Settings.Bypass
@@ -41,6 +42,12 @@ if noface == "On" then
 	elseif not game.Players.LocalPlayer.Character.Head:FindFirstChild("face") then
 		print("Already has no face!")
 	end
+end
+
+if nolegs == "On" then
+while wait() do
+game.Players.LocalPlayer.Character.LeftUpperLeg:Destroy()
+game.Players.LocalPlayer.Character.RightUpperLeg:Destroy()
 end
 
 if bypass == "On" then
